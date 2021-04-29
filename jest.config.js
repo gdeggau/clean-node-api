@@ -1,12 +1,12 @@
 module.exports = {
   clearMocks: true,
-  collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
-  coverageDirectory: 'coverage',
-  roots: ['<rootDir>/src'],
+  collectCoverageFrom: ["<rootDir>/src/**/*.ts"],
+  coverageDirectory: "coverage",
+  roots: ["<rootDir>/src"],
   transform: {
-    '.+\\.ts$': 'ts-jest'
+    ".+\\.ts$": "ts-jest",
   },
-  testEnvironment: 'node'
+  testEnvironment: "node",
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -186,4 +186,4 @@ module.exports = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-}
+};
