@@ -3,5 +3,5 @@
 // e os arquivos .test serem os testes de integração
 // essa configuração é utilizada no package.json, no script test:unit
 const config = require("./jest.config");
-config.testMatch = ["**/*.test.ts"];
+config.testMatch = ["**/*.spec.ts"];
 module.exports = config;
