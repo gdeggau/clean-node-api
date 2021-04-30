@@ -4,7 +4,7 @@ import { DbAddAccount } from "./db-add-account";
 const makeEncrypter = (): Encrypter => {
   class EncrypterStub implements Encrypter {
     async encrypt(value: string): Promise<string> {
-      return new Promise(resolve => resolve("hashed_value"));
+      return new Promise(resolve => resolve("hashed_password"));
     }
   }
 
@@ -80,5 +80,18 @@ describe("DbAddAccount Usecase", () => {
       email: "valid_email",
       password: "hashed_password",
     });
+  });
+  test("Should throw if AddAccountRepository throws", async () => {
+    const { sut, addAccountRepositoryStub } = makeSut();
+    jest
+      .spyOn(addAccountRepositoryStub, "add")
+      .mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())));
+    const accountData = {
+      name: "valid_name",
+      email: "valid_email",
+      password: "valid_password",
+    };
+    const promise = sut.add(accountData);
+    await expect(promise).rejects.toThrow();
   });
 });
