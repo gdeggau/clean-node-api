@@ -3,6 +3,7 @@ module.exports = {
   collectCoverageFrom: ["<rootDir>/src/**/*.ts"],
   coverageDirectory: "coverage",
   roots: ["<rootDir>/src"],
+  preset: "@shelf/jest-mongodb",
   transform: {
     ".+\\.ts$": "ts-jest",
   },
